@@ -1,0 +1,26 @@
+{
+  "err": 0,
+  "msg": "success",
+  "data": [
+    {
+      "title": "店铺概况",
+      "class": "fa-shopping-bag",
+      "path": "/home"
+    },
+    {
+      "title": "商品管理",
+      "class": "fa-industry",
+      "path": "/good"
+    },
+    {
+      "title": "订单查询",
+      "class": "fa-magnet",
+      "path": "/order"
+    },
+    {
+      "title": "客户查询",
+      "class": "fa-flag",
+      "path": "/customer"
+    }
+  ]
+}
