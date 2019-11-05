@@ -118,12 +118,75 @@
         </el-col>
       </div>
 
-      <div block-input5>
-          <span class="btn1"><el-button type="primary">筛选</el-button></span>
-          <span class="btn2"><el-button type="">导出</el-button></span>
-          <span class="btn3">查看已导出列表 重置筛选条件</span>
+      <div class="block-input5">
+        <span class="btn1">
+          <el-button type="primary">筛选</el-button>
+        </span>
+        <span class="btn2">
+          <el-button type>导出</el-button>
+        </span>
+        <span class="btn3">查看已导出列表 重置筛选条件</span>
       </div>
+    </div>
 
+    <div class="block-input6">
+      <el-tabs v-model="activeName" type="card" @tab-click="handleClick">
+        <el-tab-pane label="全部" name="first"></el-tab-pane>
+        <el-tab-pane label="代发货" name="second"></el-tab-pane>
+        <el-tab-pane label="待付款" name="third"></el-tab-pane>
+        <el-tab-pane label="已发货" name="fourth"></el-tab-pane>
+        <el-tab-pane label="已完成" name="fived"></el-tab-pane>
+        <el-tab-pane label="已关闭" name="sixed"></el-tab-pane>
+        <el-tab-pane label="退款中" name="sevend"></el-tab-pane>
+      </el-tabs>
+    </div>
+
+    <div class="block-input7">
+      <span class="shangp">商品</span>
+      <!-- <div class="order_center"> -->
+        <span class="center_logo">单价(元) / 数量</span>
+        <span class="center_logo">售后</span>
+        <span class="center_logo">买家 / 收货人</span>
+        <span class="center_logo">配送方式</span>
+        <span class="center_logo">实收金额(元)</span>
+        <span class="center_logo">订单状态</span>
+      <!-- </div> -->
+      <span class="chaoz">操作</span>
+    </div>
+
+    <div class="block-input8">
+      <el-table :data="tableData" style="width: 100%" max-height="250">
+        <el-table-column fixed prop="date" label="日期" width="150"></el-table-column>
+        <el-table-column prop="name" label="姓名" width="120"></el-table-column>
+        <el-table-column prop="province" label="省份" width="120"></el-table-column>
+        <el-table-column prop="city" label="市区" width="120"></el-table-column>
+        <el-table-column prop="address" label="地址" width="300"></el-table-column>
+        <el-table-column prop="zip" label="邮编" width="120"></el-table-column>
+        <el-table-column fixed="right" label="操作" width="120">
+          <template slot-scope="scope">
+            <el-button
+              @click.native.prevent="deleteRow(scope.$index, tableData)"
+              type="text"
+              size="small"
+            >移除</el-button>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
+
+    <div class="block-input9">
+      <div class="block">
+        <span class="demonstration"></span>
+        <el-pagination
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
+          :current-page="currentPage4"
+          :page-sizes="[100, 200, 300, 400]"
+          :page-size="100"
+          layout="total, sizes, prev, pager, next, jumper"
+          :total="400"
+        ></el-pagination>
+      </div>
     </div>
   </div>
 </template>
@@ -132,6 +195,67 @@
 export default {
   data() {
     return {
+      currentPage4: 4,
+      activeName: "first",
+      tableData: [
+        {
+          date: "2016-05-03",
+          name: "王小虎",
+          province: "上海",
+          city: "普陀区",
+          address: "上海市普陀区金沙江路 1518 弄",
+          zip: 200333
+        },
+        {
+          date: "2016-05-02",
+          name: "王小虎",
+          province: "上海",
+          city: "普陀区",
+          address: "上海市普陀区金沙江路 1518 弄",
+          zip: 200333
+        },
+        {
+          date: "2016-05-04",
+          name: "王小虎",
+          province: "上海",
+          city: "普陀区",
+          address: "上海市普陀区金沙江路 1518 弄",
+          zip: 200333
+        },
+        {
+          date: "2016-05-01",
+          name: "王小虎",
+          province: "上海",
+          city: "普陀区",
+          address: "上海市普陀区金沙江路 1518 弄",
+          zip: 200333
+        },
+        {
+          date: "2016-05-08",
+          name: "王小虎",
+          province: "上海",
+          city: "普陀区",
+          address: "上海市普陀区金沙江路 1518 弄",
+          zip: 200333
+        },
+        {
+          date: "2016-05-06",
+          name: "王小虎",
+          province: "上海",
+          city: "普陀区",
+          address: "上海市普陀区金沙江路 1518 弄",
+          zip: 200333
+        },
+        {
+          date: "2016-05-07",
+          name: "王小虎",
+          province: "上海",
+          city: "普陀区",
+          address: "上海市普陀区金沙江路 1518 弄",
+          zip: 200333
+        }
+      ],
+
       options: [
         {
           value: "选项1",
@@ -158,6 +282,20 @@ export default {
       input: "",
       value_search: ""
     };
+  },
+  methods: {
+    handleSizeChange(val) {
+      console.log(`每页 ${val} 条`);
+    },
+    handleCurrentChange(val) {
+      console.log(`当前页: ${val}`);
+    },
+    deleteRow(index, rows) {
+      rows.splice(index, 1);
+    },
+    handleClick(tab, event) {
+      console.log(tab, event);
+    }
   },
   pickerOptions: {
     disabledDate(time) {
@@ -202,9 +340,9 @@ export default {
 }
 .order-main {
   width: 1258px;
-  height: 375px;
+  height: 340px;
   background: #f7f8fa;
-  margin: 80px auto;
+  margin: 35px auto;
 }
 .block {
   margin-top: 15px;
@@ -253,16 +391,49 @@ export default {
   margin-top: 15px;
 }
 .block-input5 {
-  padding:40px ;
+  margin-top: 15px;
 }
-.btn1{
-    margin-left: 70px;
+.block-input6 {
+  width: 1258px;
+  height: 40px;
+  background: #f7f8fa;
+  margin: 0 auto;
 }
-.btn2{
-    margin-left: 10px;
+.block-input7 {
+  width: 1258px;
+  height: 40px;
+  background: #f7f8fa;
+  margin: 30px auto;
 }
-.btn3{
-    margin-left: 20px;
-    color: #155bd4;
+.block-input8 {
+  width: 1258px;
+  background: #f7f8fa;
+  margin: 30px auto;
+}
+.block-input9 {
+  width: 1258px;
+
+  background: #f7f8fa;
+  margin: 20px auto;
+}
+.btn1 {
+  margin-left: 70px;
+}
+.btn2 {
+  margin-left: 10px;
+}
+.btn3 {
+  margin-left: 20px;
+  color: #155bd4;
+}
+.shangp {
+  line-height: 40px;
+}
+.chaoz {
+  line-height: 40px;
+  float: right;
+}
+.center_logo{
+    margin-left: 45px;
 }
 </style>
