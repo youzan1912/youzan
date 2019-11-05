@@ -26,13 +26,27 @@ function fetch(api,callback){
 
 const store=new Vuex.Store({
     state:{
-        
+        isLogin:false,
+        navList: []
     },
     mutations:{
-    
+        changeLogin(state){
+            state.isLogin = !state.isLogin
+        },
+        setNavList(state, payload) {
+            state.navList = payload
+          }
     },
     actions:{
-        
+        getLogin(store){
+                store.commit('changeLogin')
+        },
+        getNavList(store) {
+            fetch('/db/nav.json', data=>{
+              console.log('导航数据', data)
+              store.commit('setNavList', data)
+            })
+          }
     }
 })
 
