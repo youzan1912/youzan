@@ -1,9 +1,9 @@
 <template>
     <div class="productTable">
         <el-row type="flex" >
-           <el-table :data="goodsList.slice((currentPage-1)*pagesize,currentPage*pagesize)" style="width: 100%" :default-sort = "{prop: 'date', order: 'descending'}" @selection-change="changeFun" >
+           <el-table :data="goodsList.slice((currentPage-1)*pagesize,currentPage*pagesize)" style="width: 100%" :default-sort = "{prop: 'date', order: 'descending'}" @selection-change="handleSelectionChange" >
                
-              <el-table-column   type="selection"  width="55" class="first-btn" @selection-change="changeFun"> </el-table-column>
+              <el-table-column   type="selection"  width="55" class="first-btn"  > </el-table-column>
               <el-table-column  label="商品图片 "   width="150"   >
                 <template scope="scope">
                     <img :src="scope.row.img"  class="goodspic" >
@@ -27,7 +27,7 @@
             <el-col :span="10" >
                <el-button>改分组</el-button>
                <el-button>下架</el-button>
-               <el-button  >删除</el-button>
+               <el-button @click="deleteBtn" >删除</el-button>
                <el-button>批量设置</el-button>
             </el-col>
 
@@ -45,7 +45,7 @@
                 </el-col>
 
                 <el-col :span="6">
-                    <span>每页5条</span>   
+                    <span>每页{{pagesize}}条</span>   
                  </el-col>
              </el-col>
 
@@ -57,34 +57,43 @@
 
            </el-col>
         </el-row>
-
+            <div v-text="goodsList2"></div>
    </div>
 </template>
 <script>
  
-import {mapState,mapActions } from 'vuex'
+import {mapState,mapActions, mapMutations } from 'vuex'
 export default {
       data() {
       return {
         total:10,
         pagesize:3,
         currentPage:1,
+        multipleSelection: [],
+
       }
     },
     computed:{
-      ...mapState(['goodsList'])
+      ...mapState(['goodsList','goodsList2'])
     },
     methods: {
-        
+      deleteBtn(){
+          this.deleteGoods(this.multipleSelection)
+      },
       handleCurrentChange(currentPage) {
         //当前页面
          this.currentPage = currentPage
-          
       },
+      ... mapMutations(['deleteGoods']),
       ...mapActions(['getGoodsList']),
-      changeFun(val){
-        console.log(val)
+  
+      handleSelectionChange(val){ 
+         
+        this.multipleSelection=val
+        console.log(this.multipleSelection)
+ 
       }
+      
        
     },
     mounted () {

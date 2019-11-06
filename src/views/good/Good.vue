@@ -13,8 +13,10 @@
             
          <el-container  class="ProductContent-box">
              <el-main>
-
-              <ProductContent></ProductContent>
+             
+              <ProductContent>
+                  
+              </ProductContent>
               <ProductTable></ProductTable>
             
              </el-main>
@@ -27,6 +29,7 @@ import ProductList from "./ProductList"
 import ProductContent from "./productContent"
 import ProductHead from "./ProductHead"
 import ProductTable from "./ProductTable"
+
  
  
 export default {
@@ -35,6 +38,7 @@ export default {
         ProductContent,
         ProductHead,
         ProductTable,
+        
        
     }
 }

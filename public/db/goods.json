@@ -69,7 +69,7 @@
            "stock":100,
            "sales":20,
            "date":"2016-04-02",
-           "number":6
+           "number":7
            },
            {
             "id":8,
@@ -79,7 +79,7 @@
            "stock":100,
            "sales":20,
            "date":"2016-04-02",
-           "number":6
+           "number":8
            }
     ]
 }
