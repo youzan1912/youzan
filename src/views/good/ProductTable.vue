@@ -49,36 +49,34 @@
                  </el-col>
              </el-col>
 
+              <!-- 分页条 -->
            <el-col :span="6">
-             
-               
-             
-            <el-pagination  @current-change="handleCurrentChange" :current-page.sync="currentPage" :page-size="5" layout="prev, pager, next, jumper" :total="20"    ></el-pagination>
-
+            <el-pagination  @current-change="handleCurrentChange" :current-page.sync="currentPage" :page-size="pagesize" layout="prev, pager, next, jumper" :total="total"     ></el-pagination>
            </el-col>
         </el-row>
-            <div v-text="goodsList2"></div>
+             
    </div>
 </template>
 <script>
  
-import {mapState,mapActions, mapMutations } from 'vuex'
+import { mapState, mapActions , mapMutations } from 'vuex'
 export default {
       data() {
       return {
-        total:10,
+        total:1 ,
         pagesize:3,
         currentPage:1,
         multipleSelection: [],
-
       }
     },
     computed:{
-      ...mapState(['goodsList','goodsList2'])
+        
+      ...mapState(['goodsList'])
     },
     methods: {
       deleteBtn(){
           this.deleteGoods(this.multipleSelection)
+          
       },
       handleCurrentChange(currentPage) {
         //当前页面
@@ -88,23 +86,22 @@ export default {
       ...mapActions(['getGoodsList']),
   
       handleSelectionChange(val){ 
-         
         this.multipleSelection=val
         console.log(this.multipleSelection)
- 
-      }
-      
-       
+      } 
     },
     mounted () {
-        this.getGoodsList()
+        this.getGoodsList() 
+    },
+    updated(){
+       this.total=this.goodsList.length
     }
       
 }
 </script>
 <style lang="scss" scoped>
     .productTable{
-        margin-left:164px;
+        // margin-left:164px;
         // overflow: hidden;
     }
     .goodspic{

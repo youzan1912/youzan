@@ -17,7 +17,7 @@
               <ProductContent>
                   
               </ProductContent>
-              <ProductTable></ProductTable>
+              <!-- <ProductTable></ProductTable> -->
             
              </el-main>
          </el-container>
@@ -28,7 +28,7 @@
 import ProductList from "./ProductList"
 import ProductContent from "./productContent"
 import ProductHead from "./ProductHead"
-import ProductTable from "./ProductTable"
+// import ProductTable from "./ProductTable"
 
  
  
@@ -37,7 +37,7 @@ export default {
         ProductList,
         ProductContent,
         ProductHead,
-        ProductTable,
+        // ProductTable,
         
        
     }
