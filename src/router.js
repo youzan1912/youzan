@@ -5,6 +5,9 @@ Vue.use(VueRouter)
 
 import Login from '@/views/login/Login.vue'
 import Home from '@/views/home/Home.vue'
+import Order from '@/views/order/Order.vue'
+import Good from '@/views/good/Good.vue'
+import Customer from '@/views/customer/Customer.vue'
 
 const router = new VueRouter({
     routes:[
@@ -22,6 +25,21 @@ const router = new VueRouter({
             path: '/home',
             
             component: Home
+        },
+        {
+            path: '/order',
+            
+            component: Order
+        },
+        {
+            path: '/good',
+            
+            component: Good
+        },
+        {
+            path: '/customer',
+            
+            component: Customer
         }
     ]
 })

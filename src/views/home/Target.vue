@@ -1,9 +1,8 @@
 <template>
-    <div class="pay">
-        <div class="pay_item" v-for="(item,index) in payList" :key="index">
+    <div class="target">
+        <div class="target_item" v-for="(item,index) in targetList" :key="index">
             <p v-text="item.title">支付订单数</p>
             <h2 v-text="item.num">1</h2>
-            <p class="p2" v-text="'昨日：'+item.before"><span></span></p>
         </div>
     </div>
 </template>
@@ -13,30 +12,28 @@ import { mapState, mapActions } from 'vuex'
 
 export default {
      computed: {
-    ...mapState(['payList'])
+    ...mapState(['targetList'])
     },
     mounted() {
-        this.getPayList()
+        this.getTargetList()
     },
     methods: {
-     ...mapActions(['getPayList'])
+     ...mapActions(['getTargetList'])
     }
 }
 </script>
 
 <style lang="scss" scoped>
-    .pay{
+    .target{
         width: 50%;
         height: 200px;
-        box-sizing: border-box;
-        border-right: 1px solid #666;
-        float: left;
-        .pay_item{
+        float: right;
+        .target_item{
             width: 50%;
             height: 50%;
             display: inline-block;
             >p:nth-child(1){
-                margin-top: 5px;
+                margin-top: 10px;
                 display: block;
                 font-size: 14px;
                 margin-left: 30px;
@@ -48,12 +45,6 @@ export default {
                 font-size: 26px;
                 margin-left: 30px;
                 margin-bottom: 5px;
-            }
-            .p2{
-                display: block;
-                font-size: 14px;
-                margin-left: 30px;
-                color: #777;
             }
         }
     }

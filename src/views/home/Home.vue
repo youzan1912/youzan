@@ -14,18 +14,26 @@
                 </div>
                 <div class="box">
                     <Pay></Pay>
+                    <Target></Target>
                 </div>
             </div>
+        </div>
+        <div class="ass">
+            <Assistant></Assistant>
         </div>
     </div>
 </template>
 
 <script>
 import Pay from './Pay.vue'
+import Target from './Target.vue'
+import Assistant from './Assistant.vue'
 
 export default {
     components:{
-        Pay
+        Pay,
+        Target,
+        Assistant
     }
 }
 </script>
@@ -34,11 +42,10 @@ export default {
     .home{
         width: 80%;
         height: 100%;
-        background: pink;
+        border-right: 1px solid #666;
         .survey{
             width: 100%;
             height: 282px;
-            background: yellowgreen;
             .widget{
                 padding:10px 20px;
                 margin-bottom: 20px;
@@ -74,9 +81,12 @@ export default {
                 .box{
                     width: 100%;
                     height: 200px;
-                    background: wheat;
                 }
             }
+        }
+        .ass{
+            width: 100%;
+            height: 340px;
         }
     }
 </style>
