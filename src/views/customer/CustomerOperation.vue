@@ -13,43 +13,43 @@
     <el-table-column
       prop="card"
       label="权益卡"
-      width="150">
+      width="170">
     </el-table-column>
     <el-table-column
       prop="integral"
       label="积分"
-      width="150">
+      width="170">
     </el-table-column>
     <el-table-column
       prop="balance"
       label="储值余额"
-      width="150">
+      width="170">
     </el-table-column>
     <el-table-column
       prop="frequency"
       label="购买次数"
-      width="150">
+      width="170">
     </el-table-column>
     <el-table-column
       prop="consumption"
       label="累计消费金额"
-      width="150">
+      width="170">
     </el-table-column>
      <el-table-column
       prop="timemo"
       label="上次消费时间"
-      width="150">
+      width="170">
     </el-table-column>
-    <el-table-column
+   <el-table-column
       fixed="right"
       label="操作"
-      width="350">
+      width="220">
       <template slot-scope="scope">
         <el-button
           @click.native.prevent="deleteRow(scope.$index, tableData)"
           type="text"
           size="small">
-            设置权益卡|加标签|更多
+          设置权益卡|加标签|更多
         </el-button>
       </template>
     </el-table-column>
@@ -59,7 +59,7 @@
 <el-pagination
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
-      :page-sizes="[100, 200, 300, 400]"
+      :page-sizes="[4, 200, 300, 400]"
       :page-size="100"
       layout="total, sizes, prev, pager, next, jumper"
       :total="400">
@@ -78,9 +78,11 @@ import {mapState,mapActions, mapMutations} from 'vuex'
     methods: {
       ...mapActions(['getCustomer']),
       ...mapMutations(['updateOrderList']),
-      deleteRow(index, rows) {
+
+        deleteRow(index, rows) {
         rows.splice(index, 1);
       },
+
        handleSizeChange(val) {
         console.log(`每页 ${val} 条`);
       },

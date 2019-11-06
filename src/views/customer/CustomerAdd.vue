@@ -66,7 +66,7 @@
 </template>
 
 <script>
-import {mapState,mapActions,mapMutations} from 'vuex'
+import {mapState,mapMutations} from 'vuex'
 export default {
   data() {
     return {
@@ -130,7 +130,7 @@ export default {
   },
   methods: {
     ...mapMutations(['updateAdd']),
-    ...mapActions(['getAdd']),
+    //...mapActions(['getAdd']),
     add() {
       this.dialogVisible = false;
 
@@ -145,10 +145,11 @@ export default {
         remarks: this.remarks
       }
       console.log(custArr);
+      this.updateAdd(custArr)
     }
   },
   mounted() {
-    this.getAdd(this.custArr);
+    //this.getAdd(this.custArr);
   },
   computed: {
     ...mapState(["customer2"])

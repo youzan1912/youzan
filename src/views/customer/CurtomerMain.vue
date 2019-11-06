@@ -49,22 +49,28 @@
 
          <div class="gjc">
             <span class="span1">关键词：</span>
-             <el-input placeholder="手机号/微信昵称/姓名"></el-input>
+             <el-input v-model='shai' @change="inpOne" placeholder="手机号/微信昵称/姓名"></el-input>
         </div>
+        
   </div>
-
-
-
         </div>
     </div>
 </template>
 
 <script>
+import Bus from '@/views/customer/Bus.js'
 export default {
     data:function(){
         return{
-            value2:null
+            value2:'',
+            shai:''
         }
+    },
+    methods:{
+        inpOne(){
+        Bus.$emit('chat',this.shai)
+      }
+
     }
 }
 </script>

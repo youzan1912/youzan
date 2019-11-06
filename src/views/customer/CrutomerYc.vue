@@ -137,7 +137,7 @@
   
          <div class="Yc">
       <div>
-      <el-button type="primary">筛选</el-button>
+      <el-button type="primary" @click="sx">筛选</el-button>
       <el-link :underline="false">重置筛选条件</el-link>
       <el-button @click="show3 = !show3">展开</el-button>
       </div>
@@ -150,11 +150,28 @@
 </template>
 
 <script>
+import Bus from '@/views/customer/Bus.js'
+import { mapMutations } from 'vuex';
 export default {
     data: () => ({
       show3: false,
-      value:null
-    })
+      value:null,
+      msg:''
+    }),
+    methods:{
+      ...mapMutations(['updateDress']),
+      sx(){
+        this.updateDress({customer:this.msg})
+      }
+    },
+    mounted(){
+      var that=this
+      Bus.$on('chat',function(msg){
+          that.msg=msg
+          console.log(that.msg)
+      })
+
+    }
   }
 </script>
 

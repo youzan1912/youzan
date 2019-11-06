@@ -46,9 +46,22 @@ const store = new Vuex.Store({
       state.customer2 = list.slice((page-1)*4, page*4)  
   },
     updateAdd(state,payload){
-      state.customer2=[... state.customer2, ...payload]
+      //state.customer2=[... state.customer2, ...payload]
+      state.customer2.push(payload)
+      console.log(state.customer2)
+    },
+
+    updateDress(state,payload){  //筛选
+      let arr=[]
+      state.customer.map((ele)=>{
+          if(ele.customer==payload.customer){
+              arr.push(ele)
+          }
+      })
+      state.customer2 = arr
     }
   },
+
   actions: {
     getNavList(store) {
       fetch('/db/nav.json', data=>{
@@ -61,6 +74,7 @@ const store = new Vuex.Store({
         let payload = {
           page: 1,
           list: data,
+          customer:''
       }
       store.commit('updateOrderList', payload)
         // console.log(data)
@@ -68,12 +82,12 @@ const store = new Vuex.Store({
         // store.commit('updateOrderList',payload)
       })
     },
-    getAdd(store){
-      fetch('/db/customer.json', (data) => {
-        console.log(data)
-      store.commit('updateAdd',data)
-    })
-    }
+    // getAdd(store){
+    //   fetch('/db/customer.json', (data) => {
+    //     console.log(data)
+    //   store.commit('updateAdd',data)
+    // })
+    // }
 
   }
 })
