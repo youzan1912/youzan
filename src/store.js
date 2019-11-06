@@ -30,7 +30,11 @@ const store=new Vuex.Store({
         payList:[],
         targetList:[],
         assList:[],
+<<<<<<< HEAD
         username:""
+=======
+        goodsList:[]
+>>>>>>> edfdd52b911c86cb9067e15669b7cdb35ad933be
     },
     mutations:{
         setNavList(state, payload) {
@@ -45,9 +49,16 @@ const store=new Vuex.Store({
           updateAssList(state,payload){
             state.assList=payload
           },
+<<<<<<< HEAD
           updateUser(state,payload){
               state.username=payload
           }
+=======
+          updateGoodsList(state,payload){
+            state.goodsList=payload
+           
+        },
+>>>>>>> edfdd52b911c86cb9067e15669b7cdb35ad933be
     },
     actions:{
         getNavList(store) {
@@ -71,6 +82,7 @@ const store=new Vuex.Store({
                 store.commit('updateAssList',data)
             })
         },
+<<<<<<< HEAD
         getUser(store){
             let res=localStorage.getItem('login')
             console.log(res)
@@ -84,3 +96,17 @@ const store=new Vuex.Store({
     }
 })
 export default store
+=======
+        getGoodsList(store){
+            fetch('/db/goods.json',data=>{
+                console.log("商品数据",data)
+                store.commit('updateGoodsList',data)
+             
+            })
+        } 
+    }
+})
+
+export default store
+
+>>>>>>> edfdd52b911c86cb9067e15669b7cdb35ad933be

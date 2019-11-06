@@ -1,10 +1,14 @@
+
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+<<<<<<< HEAD
 const routerPush = VueRouter.prototype.push
 VueRouter.prototype.push = function push(location) {
   return routerPush.call(this, location).catch(error=> error)
 }
+=======
+>>>>>>> edfdd52b911c86cb9067e15669b7cdb35ad933be
 
 Vue.use(VueRouter)
 
@@ -15,7 +19,7 @@ import Good from '@/views/good/Good.vue'
 import Customer from '@/views/customer/Customer.vue'
 
 const router = new VueRouter({
-    routes:[
+    routes: [
         {
             path: '/',
             redirect: '/home'
@@ -32,9 +36,9 @@ const router = new VueRouter({
             component: Home
         },
         {
-            path: '/order',
+          path: '/order',
             
-            component: Order
+          component: Order
         },
         {
             path: '/good',
@@ -49,6 +53,7 @@ const router = new VueRouter({
     ]
 })
 
+<<<<<<< HEAD
 router.beforeEach((to, from, next) => {
     if (to.path === '/login') {
         next()
@@ -72,3 +77,7 @@ router.beforeEach((to, from, next) => {
 })
 
 export default router
+=======
+export default router
+
+>>>>>>> edfdd52b911c86cb9067e15669b7cdb35ad933be

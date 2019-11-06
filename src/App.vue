@@ -10,19 +10,48 @@
         <el-main><Main></Main></el-main>
         </el-container>
     </el-container>   
+
+
+    <el-container>
+
+
+      <el-aside width='135px'>
+        <Aside></Aside>
+      </el-aside>
+
+      <el-container>
+        <el-header>
+          <Header></Header>
+        </el-header>
+
+        <el-main>
+          <Main></Main>
+        </el-main>
+      </el-container>
+
+  </el-container>
+
+
+>>>>>>> dev
+=======
+      <router-view></router-view>
+>>>>>>> test
   </div>
 </template>
 
 <script>
+
 import Aside from '@/components/Aside.vue'
 import Header from '@/components/Header.vue'
 import Main from '@/components/Main.vue'
 // import Login from '@/views/login/Login.vue'
 
 
+
 export default {
   name: 'app',
   components: {
+
     Aside,
     Header,
     Main,
@@ -47,10 +76,6 @@ html,body{
 *{
   margin: 0;
   padding: 0;
-}
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
 }
 </style>
