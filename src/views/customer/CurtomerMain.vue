@@ -47,9 +47,9 @@
     </el-date-picker>
     </div>
 
-         <div>
+         <div class="gjc">
             <span class="span1">关键词：</span>
-             <el-input v-model="input" placeholder="请输入内容"></el-input>
+             <el-input v-model="input" placeholder="手机号/微信昵称/姓名"></el-input>
         </div>
   </div>
 
@@ -82,9 +82,12 @@ export default {
     }
       .el-input{
         
-       width: 300px !important;
+       width: 220px !important;
    }
    .span1{
        margin-left:-50px;
+   }
+   .gjc{
+       margin-left:-80px;
    }
 </style>

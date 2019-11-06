@@ -9,14 +9,14 @@
             <CurtomerMain></CurtomerMain>
         </div>
 
-        <div class="crutomerYc">
+    <div class="crutomerYc">
           <CrutomerYc></CrutomerYc>
       </div>
       
     
 
-        <div class="customerOperation">
-        <CustomerOperation></CustomerOperation>
+         <div class="customerOperation">
+         <CustomerOperation></CustomerOperation>
         </div>
 
     </div>
@@ -57,12 +57,10 @@ export default {
     background-color: #F7F8FA;
 }
 .crutomerYc{
-     width: 1350px;
-     padding-top: 20px;
-     background-color: #F7F8FA;
-}
-.customerOperation{
     width: 1350px;
-    height:320px;
+    padding-top: 20px;
+    height: 100%;
+    background-color: #F7F8FA;
 }
+
 </style>
