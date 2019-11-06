@@ -28,19 +28,21 @@ import CustomerAdd from './CustomerAdd.vue'
 import CurtomerMain from './CurtomerMain.vue'
 import CustomerOperation from './CustomerOperation.vue'
 import CrutomerYc from './CrutomerYc.vue'
+
+
 export default {
     data:function () {
         return{
-
+        
         }
     },
-    components:{
-   
+    components:{ 
        CustomerAdd,
        CurtomerMain,
        CustomerOperation,
        CrutomerYc
-    }
+    },
+    
 }
 </script>
 

@@ -1,48 +1,49 @@
 <template>
+<div>
   <el-table
-    :data="tableData"
+    :data="customer2"
     style="width: 100%"
-    max-height="300">
+    max-height="200">
     <el-table-column
       fixed
-      prop="date"
+      prop="customer"
       label="客户"
-      width="100%">
+      width="200px">
     </el-table-column>
     <el-table-column
-      prop="name"
+      prop="card"
       label="权益卡"
-      width="120">
+      width="150">
     </el-table-column>
     <el-table-column
-      prop="province"
+      prop="integral"
       label="积分"
-      width="120">
+      width="150">
     </el-table-column>
     <el-table-column
-      prop="city"
+      prop="balance"
       label="储值余额"
-      width="120">
+      width="150">
     </el-table-column>
     <el-table-column
-      prop="address"
+      prop="frequency"
       label="购买次数"
-      width="300">
+      width="150">
     </el-table-column>
     <el-table-column
-      prop="zip"
+      prop="consumption"
       label="累计消费金额"
-      width="120">
+      width="150">
     </el-table-column>
      <el-table-column
       prop="timemo"
       label="上次消费时间"
-      width="120">
+      width="150">
     </el-table-column>
     <el-table-column
       fixed="right"
       label="操作"
-      width="120">
+      width="350">
       <template slot-scope="scope">
         <el-button
           @click.native.prevent="deleteRow(scope.$index, tableData)"
@@ -53,71 +54,51 @@
       </template>
     </el-table-column>
   </el-table>
+
+
+<el-pagination
+      @size-change="handleSizeChange"
+      @current-change="handleCurrentChange"
+      :page-sizes="[100, 200, 300, 400]"
+      :page-size="100"
+      layout="total, sizes, prev, pager, next, jumper"
+      :total="400">
+    </el-pagination>
+
+
+  </div>
 </template>
 <script>
+import {mapState,mapActions, mapMutations} from 'vuex'
    export default {
+       data:function () {
+        return{ 
+        }
+    },
     methods: {
+      ...mapActions(['getCustomer']),
+      ...mapMutations(['updateOrderList']),
       deleteRow(index, rows) {
         rows.splice(index, 1);
+      },
+       handleSizeChange(val) {
+        console.log(`每页 ${val} 条`);
+      },
+      handleCurrentChange(val) {
+        console.log(`当前页: ${val}`);
+        this.updateOrderList({page:val})
       }
     },
-    data() {
-      return {
-        tableData: [{
-          date: '2016-05-03',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }, {
-          date: '2016-05-02',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }, {
-          date: '2016-05-04',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }, {
-          date: '2016-05-01',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }, {
-          date: '2016-05-08',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }, {
-          date: '2016-05-06',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }, {
-          date: '2016-05-07',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }]
-      }
+    mounted(){
+        this.handleCurrentChange()
+        this.getCustomer()
+    },
+    computed:{
+        ...mapState(['customer2'])
     }
   }
 </script>
-<style>
+<style lang="scss">
 
 </style>
 

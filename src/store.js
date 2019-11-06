@@ -25,11 +25,28 @@ function fetch(api, callback) {
 
 const store = new Vuex.Store({
   state: {
-    navList: []
+    navList: [],
+    customer:[],
+    customer2:[]
   },
   mutations: {
     setNavList(state, payload) {
       state.navList = payload
+    },
+    // updateCustomer(state,payload){
+    //   state.customer=[...state.customer, ...payload]
+    //   console.log(state.customer)
+    // },
+    updateOrderList(state,payload){  //分页
+      if (payload.list) {
+          state.customer=payload.list
+      }
+      let page=payload.page||1
+      let list = state.customer
+      state.customer2 = list.slice((page-1)*4, page*4)  
+  },
+    updateAdd(state,payload){
+      state.customer2=[... state.customer2, ...payload]
     }
   },
   actions: {
@@ -38,6 +55,24 @@ const store = new Vuex.Store({
         console.log('导航数据', data)
         store.commit('setNavList', data)
       })
+    },
+    getCustomer(store){
+      fetch('/db/customer.json',(data)=>{
+        let payload = {
+          page: 1,
+          list: data,
+      }
+      store.commit('updateOrderList', payload)
+        // console.log(data)
+        // console.log('当前页',page)
+        // store.commit('updateOrderList',payload)
+      })
+    },
+    getAdd(store){
+      fetch('/db/customer.json', (data) => {
+        console.log(data)
+      store.commit('updateAdd',data)
+    })
     }
 
   }

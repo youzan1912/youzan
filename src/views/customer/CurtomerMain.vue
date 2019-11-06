@@ -13,7 +13,7 @@
      <el-date-picker
       v-model="value2"
       type="datetimerange"
-      :picker-options="pickerOptions"
+      
       range-separator="至"
       start-placeholder="开始日期"
       end-placeholder="结束日期"
@@ -26,7 +26,7 @@
      <el-date-picker
       v-model="value2"
       type="datetimerange"
-      :picker-options="pickerOptions"
+     
       range-separator="至"
       start-placeholder="开始日期"
       end-placeholder="结束日期"
@@ -39,7 +39,7 @@
      <el-date-picker
       v-model="value2"
       type="datetimerange"
-      :picker-options="pickerOptions"
+      
       range-separator="至"
       start-placeholder="开始日期"
       end-placeholder="结束日期"
@@ -49,7 +49,7 @@
 
          <div class="gjc">
             <span class="span1">关键词：</span>
-             <el-input v-model="input" placeholder="手机号/微信昵称/姓名"></el-input>
+             <el-input placeholder="手机号/微信昵称/姓名"></el-input>
         </div>
   </div>
 
@@ -61,7 +61,11 @@
 
 <script>
 export default {
-
+    data:function(){
+        return{
+            value2:null
+        }
+    }
 }
 </script>
 
