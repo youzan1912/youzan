@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-<<<<<<< HEAD
-
 
 Vue.use(VueRouter)
 
@@ -13,7 +10,7 @@ import Good from '@/views/good/Good.vue'
 import Customer from '@/views/customer/Customer.vue'
 
 const router = new VueRouter({
-    routes: [
+    routes:[
         {
             path: '/',
             redirect: '/home'
@@ -30,9 +27,9 @@ const router = new VueRouter({
             component: Home
         },
         {
-          path: '/order',
+            path: '/order',
             
-          component: Order
+            component: Order
         },
         {
             path: '/good',
@@ -47,34 +44,4 @@ const router = new VueRouter({
     ]
 })
 
-=======
-Vue.use(VueRouter)
-
-import Customer from '@/views/customer/Customer.vue'
-
-const router=new VueRouter({
-    routes:[
-        {
-            path:'/customer',
-            component:Customer
-        },
-  ]
-})
->>>>>>> dev
 export default router
-=======
-import Vue from 'vue';
-import VueRouter from 'vue-router'
-Vue.use(VueRouter);
- 
-import Good from '@/views/good/Good.vue'
-const router =new VueRouter({
-    routes:[
-        {
-        path:'/good',
-        component: Good
-    }
-]
-})
-export default router;
->>>>>>> test
