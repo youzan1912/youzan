@@ -1,19 +1,11 @@
-<<<<<<< HEAD
 <template>
     <div class="main">
         <router-view></router-view> 
     </div>
-=======
-<template lang="html">
-<div class="main">
-  <router-view></router-view>
-</div>
->>>>>>> dev
 </template>
 
 <script>
 export default {
-<<<<<<< HEAD
     
 }
 </script>
@@ -24,13 +16,4 @@ export default {
         height: 1000px;
         background: white;
     }
-=======
-}
-</script>
-
-<style lang="css" scoped>
-.main {
-  background: white;
-}
->>>>>>> dev
 </style>

@@ -1,14 +1,4 @@
 <template>
-<<<<<<< HEAD
-    <div>
-        
-    </div>
-</template>
-
-<script>
-export default {
-    
-=======
     <div class="product">
         <div class="meum-list">
                 <!-- 左边留下的空间 -->
@@ -47,15 +37,10 @@ export default {
         ProductTable,
        
     }
->>>>>>> test
 }
 </script>
 
 <style lang="scss" scoped>
-<<<<<<< HEAD
-
-</style>
-=======
     .meum-list{
         width:116px;
         height:940px;
@@ -68,4 +53,3 @@ export default {
         min-height:500px;
     }
 </style>
->>>>>>> test

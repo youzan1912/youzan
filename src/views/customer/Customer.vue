@@ -1,8 +1,5 @@
 <template>
     <div>
-<<<<<<< HEAD
-        
-=======
 
         <div class="customerAdd">
             <CustomerAdd></CustomerAdd>
@@ -22,19 +19,10 @@
          <CustomerOperation></CustomerOperation>
         </div>
 
->>>>>>> dev
     </div>
 </template>
 
 <script>
-<<<<<<< HEAD
-export default {
-    
-}
-</script>
-
-<style lang="scss" scoped>
-=======
 
 import CustomerAdd from './CustomerAdd.vue'
 import CurtomerMain from './CurtomerMain.vue'
@@ -74,6 +62,5 @@ export default {
     height: 100%;
     background-color: #F7F8FA;
 }
->>>>>>> dev
 
 </style>
