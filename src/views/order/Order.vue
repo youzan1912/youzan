@@ -1,3 +1,4 @@
+<template>
   <div class="order">
     <div class="order-header">订单查询</div>
     <div class="order-main">
@@ -188,6 +189,10 @@
       </div>
     </div>
   </div>
+</template>
+
+<script>
+export default {
   data() {
     return {
       currentPage4: 4,
@@ -323,6 +328,9 @@
   },
   value1: ""
 };
+</script>
+
+<style lang="scss" scoped>
 .order-header {
   width: 100%;
   height: 50px;
@@ -404,6 +412,7 @@
 }
 .block-input9 {
   width: 1258px;
+
   background: #f7f8fa;
   margin: 20px auto;
 }
@@ -427,3 +436,10 @@
 .center_logo{
     margin-left: 45px;
 }
+</style>
+    
+}
+
+<style lang="scss" scoped>
+
+</style>

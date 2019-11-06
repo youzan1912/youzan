@@ -2,13 +2,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-<<<<<<< HEAD
 const routerPush = VueRouter.prototype.push
 VueRouter.prototype.push = function push(location) {
   return routerPush.call(this, location).catch(error=> error)
 }
-=======
->>>>>>> edfdd52b911c86cb9067e15669b7cdb35ad933be
 
 Vue.use(VueRouter)
 
@@ -53,7 +50,6 @@ const router = new VueRouter({
     ]
 })
 
-<<<<<<< HEAD
 router.beforeEach((to, from, next) => {
     if (to.path === '/login') {
         next()
@@ -77,7 +73,3 @@ router.beforeEach((to, from, next) => {
 })
 
 export default router
-=======
-export default router
-
->>>>>>> edfdd52b911c86cb9067e15669b7cdb35ad933be

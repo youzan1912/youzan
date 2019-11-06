@@ -11,31 +11,6 @@
         </el-container>
     </el-container>   
 
-
-    <el-container>
-
-
-      <el-aside width='135px'>
-        <Aside></Aside>
-      </el-aside>
-
-      <el-container>
-        <el-header>
-          <Header></Header>
-        </el-header>
-
-        <el-main>
-          <Main></Main>
-        </el-main>
-      </el-container>
-
-  </el-container>
-
-
->>>>>>> dev
-=======
-      <router-view></router-view>
->>>>>>> test
   </div>
 </template>
 
