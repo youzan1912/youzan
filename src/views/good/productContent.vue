@@ -1,27 +1,33 @@
 <template>
   <div class="productContent">
     <div>
+        <keep-alive>
       <el-tabs v-model="activeName" @tab-click="handleClick">
-        <el-tab-pane label="销售中" name="first">
-          <ProductInput></ProductInput>
-          <ProductTable></ProductTable>
-        </el-tab-pane>
+           <el-tab-pane label="销售中" name="first">
+             <ProductInput></ProductInput>
+             <ProductTable></ProductTable>
+           </el-tab-pane>
+        
 
-        <el-tab-pane label="已售罄" name="second">
+       
+         <el-tab-pane label="已售罄" name="second">
             <ProductInput></ProductInput>
-        </el-tab-pane>
-
-        <el-tab-pane label="仓库中" name="third">
-          <ProductInput></ProductInput>
-        </el-tab-pane>
+             <ProductTable></ProductTable>
+        </el-tab-pane> 
+           
+             <el-tab-pane label="仓库中" name="third">
+               <ProductInput></ProductInput>
+                 <ProductTable></ProductTable>
+             </el-tab-pane>
       </el-tabs>
+        </keep-alive>
     </div>
   </div>
 </template>
 <script>
 import ProductTable from "./ProductTable";
 import ProductInput from "./productInput";
-import {mapState } from "vuex"
+import {mapState, mapMutations,mapActions } from "vuex"
 export default {
   components: {
     ProductTable,
@@ -29,17 +35,43 @@ export default {
   },
   data() {
     return {
-      activeName: "first"
+      activeName: "first",
+        goodsList2:[{
+            "id":2,
+            "img":"//img14.360buyimg.com/n2/s240x240_jfs/t1/79558/28/12532/419786/5d9f01e7Ee9e13f38/76a2830d587a8f20.jpg!q70.jpg", 
+           "good":"橡皮糖",
+           "visit":0,
+           "stock":80,
+           "sales":20,
+           "date":"2017-05-07",
+           "number":2
+           },],
+        goodsList3:[]
+      
     };
   },
   computed:{
-        ...mapState(['goodslist'])
+        ...mapState(['goodslist'  ])
   },
   methods: {
+    ...mapActions(['getGoodsList']),
+    ...mapMutations(['updateGoodsList2','updateGoodsList3']),
     handleClick(tab, event) {
       console.log(tab, event);
+        if(this.activeName=="first"){
+          this.getGoodsList()
+             return;
+        }
       if(this.activeName=="second"){
-       console.log("11111")
+         this.updateGoodsList2(this.goodsList2 )
+         return;
+      }
+      
+       if(this.activeName=="third"){
+
+        this.updateGoodsList3(this.goodsList3)
+         return;
+         
       }
     }
   }
@@ -47,9 +79,11 @@ export default {
 </script>
 <style lang="scss" scoped>
 .productContent {
-  margin-left: 164px;
+ padding-left:10px;
+ padding-bottom:20px;
   margin-top: 10px;
   background: #fff;
   overflow: hidden;
 }
+
 </style>

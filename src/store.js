@@ -24,12 +24,23 @@ function fetch(api,callback){
 const store = new Vuex.Store({
     state:{
         goodsList:[],
+        goodsList2:[],
+        goodsList3:[],
          
     },
     mutations:{
         updateGoodsList(state,payload){
             state.goodsList=payload
         },
+        updateGoodsList2(state,payload){
+            state.goodsList=payload
+            console.log(state.goodsList2)
+        },
+        updateGoodsList3(state,payload){
+            state.goodsList=payload
+             
+        },
+         
         deleteGoods(state, payload) {
             console.log(state, payload)
             let arr1 = state.goodsList
@@ -43,6 +54,11 @@ const store = new Vuex.Store({
                 }
             }
             state.goodsList = arr1
+        },
+        changeGoods(state, payload){
+            console.log(state, payload)
+            state.goodsList3=payload
+             
         }
         
     },
@@ -50,11 +66,9 @@ const store = new Vuex.Store({
         getGoodsList(store){
             fetch('/db/goods.json',data=>{
                 console.log("商品数据",data)
-                store.commit('updateGoodsList',data)
-                
+                store.commit('updateGoodsList',data)   
             })
-        },
-         
+        }
     }
 })
 export default store
