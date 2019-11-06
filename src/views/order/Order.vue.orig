@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+<template>
+=======
+>>>>>>> e4074e7451efbe5d4c327a86f61af62085990e86
   <div class="order">
     <div class="order-header">订单查询</div>
     <div class="order-main">
@@ -266,6 +270,13 @@
       </div>
     </div>
   </div>
+<<<<<<< HEAD
+</template>
+
+<script>
+export default {
+=======
+>>>>>>> e4074e7451efbe5d4c327a86f61af62085990e86
   data() {
     return {
       arr: [
@@ -542,9 +553,15 @@
   margin: 80px auto;
 }
 .block-input9 {
+<<<<<<< HEAD
   width: 1170px;
   margin-top: 300px;
   margin-left: 20px;
+=======
+  width: 1258px;
+  background: #f7f8fa;
+  margin: 20px auto;
+>>>>>>> e4074e7451efbe5d4c327a86f61af62085990e86
 }
 .btn1 {
   margin-left: 70px;
@@ -566,6 +583,11 @@
 .center_logo {
   margin-left: 45px;
 }
+<<<<<<< HEAD
 img{
   margin-left: 500px;
   margin-top: 130px;
+}
+</style>
+=======
+>>>>>>> e4074e7451efbe5d4c327a86f61af62085990e86
