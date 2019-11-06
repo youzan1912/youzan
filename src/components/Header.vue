@@ -1,5 +1,6 @@
 <template lang="html">
 <div class="header">
+<<<<<<< HEAD
   <div class="header-left">
     <span>用户名</span>
     <span class="blue">试用期</span>
@@ -11,6 +12,9 @@
     <span>13200000000</span>
     <i class="fa fa-angle-right"></i>
   </div>
+=======
+  
+>>>>>>> dev
 </div>
 </template>
 

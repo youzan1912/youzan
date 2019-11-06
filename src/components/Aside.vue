@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <template>
     <div class="aside">
         <div class="logo">
@@ -12,13 +13,38 @@
             </router-link>
         </div>
     </div>
+=======
+<template lang="html">
+<div class="aside" >
+  <div class="logo">
+    <i class="fa fa-thumbs-up"></i>
+  </div>
+
+  <div v-for="(item, idx) in navList" :key='idx'>
+
+    <router-link :to="item.path" active-class='nav_on' tag="span">
+      <div class="nav">
+        <i class="fa" :class='item.class'></i>
+        <span v-text="item.title"></span>
+      </div>
+    </router-link>
+
+
+  </div>
+</div>
+>>>>>>> dev
 </template>
 
 <script>
 import { mapState, mapActions } from 'vuex'
+<<<<<<< HEAD
 
 export default {
     computed: {
+=======
+export default {
+  computed: {
+>>>>>>> dev
     ...mapState(['navList'])
   },
   mounted() {
@@ -32,6 +58,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+<<<<<<< HEAD
     .aside{
         width: 100%;
         height: 100%;
@@ -54,6 +81,13 @@ export default {
             }
         }
         .nav {
+=======
+.aside {
+  height: 100%;
+  width: 100%;
+  background: rgba(68, 68, 68, 1);
+  .nav {
+>>>>>>> dev
     color: #aaa;
     line-height: 50px;
     text-align: center;
@@ -75,7 +109,10 @@ export default {
     height: 80px;
     box-sizing: border-box;
     padding-top: 20px;
+<<<<<<< HEAD
     text-align: center;
+=======
+>>>>>>> dev
     > i {
       display: inline-block;
       width: 40px;
@@ -88,5 +125,9 @@ export default {
       cursor: pointer;
     }
   }
+<<<<<<< HEAD
     }
+=======
+}
+>>>>>>> dev
 </style>

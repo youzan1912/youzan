@@ -10,7 +10,7 @@
   "dependencies": {
     "@better-scroll/core": "^2.0.0-beta.2",
     "axios": "^0.19.0",
-    "core-js": "^3.3.2",
+    "core-js": "^3.3.6",
     "element-ui": "^2.12.0",
     "mint-ui": "^2.2.13",
     "vue": "^2.6.10",
@@ -52,5 +52,17 @@
   "browserslist": [
     "> 1%",
     "last 2 versions"
-  ]
+  ],
+  "description": "```\r npm install\r ```",
+  "main": "babel.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/youzan1912/youzan.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/youzan1912/youzan/issues"
+  },
+  "homepage": "https://github.com/youzan1912/youzan#readme"
 }
