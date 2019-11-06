@@ -23,20 +23,24 @@ function fetch(api,callback){
 
 const store = new Vuex.Store({
     state:{
-        goodsList:[]
+        goodsList:[],
+        
     },
     mutations:{
         updateGoodsList(state,payload){
             state.goodsList=payload
-        }
+           
+        },
+       
     },
     actions:{
         getGoodsList(store){
             fetch('/db/goods.json',data=>{
                 console.log("商品数据",data)
                 store.commit('updateGoodsList',data)
+             
             })
-        }
+        } 
     }
 })
 export default store
