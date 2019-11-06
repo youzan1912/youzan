@@ -22,9 +22,9 @@
       <div>
         <div class="block">
           <span class="demonstrationx">下单时间:</span>
-          <el-date-picker v-model="value1" type="date" class="block-left" placeholder="开始日期"></el-date-picker>
+          <el-date-picker v-model="value" type="date" class="block-left" placeholder="开始日期"></el-date-picker>
           <span class="block-time">至</span>
-          <el-date-picker v-model="value1" type="date" placeholder="结束日期"></el-date-picker>
+          <el-date-picker v-model="value" type="date" placeholder="结束日期"></el-date-picker>
           <span class="block-right">今</span>
           <span class="block-right">昨</span>
           <span class="block-rightx">近7天</span>
@@ -42,16 +42,16 @@
 
           <el-col :span="4.5">
             <span class="demonstration">订单类型:</span>
-            <el-select v-model="value" placeholder="全部">
+            <el-select v-model="value_s" placeholder="全部">
               <el-option
-                v-for="item in options"
+                v-for="item in city"
                 :key="item.value"
                 :label="item.label"
                 :value="item.value"
               ></el-option>
             </el-select>
             <span class="demonstration">维权状态:</span>
-            <el-select v-model="value" placeholder="全部">
+            <el-select v-model="value_t" placeholder="全部">
               <el-option
                 v-for="item in options"
                 :key="item.value"
@@ -66,7 +66,7 @@
       <div class="block-input3">
         <el-col :span="4.5">
           <span class="demonstrationx">订单状态:</span>
-          <el-select v-model="value" placeholder="已发货">
+          <el-select v-model="value_m" placeholder="已发货">
             <el-option
               v-for="item in options"
               :key="item.value"
@@ -75,7 +75,7 @@
             ></el-option>
           </el-select>
           <span class="demonstrationxx">配送方式:</span>
-          <el-select v-model="value" placeholder="全部">
+          <el-select v-model="value_r" placeholder="全部">
             <el-option
               v-for="item in options"
               :key="item.value"
@@ -84,7 +84,7 @@
             ></el-option>
           </el-select>
           <span class="demonstrationxx">付款方式:</span>
-          <el-select v-model="value" placeholder="全部">
+          <el-select v-model="value_q" placeholder="全部">
             <el-option
               v-for="item in options"
               :key="item.value"
@@ -98,18 +98,18 @@
       <div class="block-input4">
         <el-col :span="4.5">
           <span class="demonstrationx">订单来源:</span>
-          <el-select v-model="value" placeholder="全部">
+          <el-select v-model="value_o" placeholder="全部">
             <el-option
-              v-for="item in options"
+              v-for="item in arr"
               :key="item.value"
               :label="item.label"
               :value="item.value"
             ></el-option>
           </el-select>
           <span class="demonstrationxx">是否加星:</span>
-          <el-select v-model="value" placeholder="全部">
+          <el-select v-model="value_p" placeholder="全部">
             <el-option
-              v-for="item in options"
+              v-for="item in star"
               :key="item.value"
               :label="item.label"
               :value="item.value"
@@ -131,29 +131,107 @@
 
     <div class="block-input6">
       <el-tabs v-model="activeName" type="card" @tab-click="handleClick">
-        <el-tab-pane label="全部" name="first"></el-tab-pane>
-        <el-tab-pane label="代发货" name="second"></el-tab-pane>
-        <el-tab-pane label="待付款" name="third"></el-tab-pane>
-        <el-tab-pane label="已发货" name="fourth"></el-tab-pane>
-        <el-tab-pane label="已完成" name="fived"></el-tab-pane>
-        <el-tab-pane label="已关闭" name="sixed"></el-tab-pane>
-        <el-tab-pane label="退款中" name="sevend"></el-tab-pane>
+        <el-tab-pane label="全部" name="first">
+          <div class="block-input8">
+            <el-table :data="tableData" style="width: 100%" max-height="250">
+              <el-table-column fixed prop="date" label="日期" width="150"></el-table-column>
+              <el-table-column prop="name" label="姓名" width="120"></el-table-column>
+              <el-table-column prop="province" label="省份" width="120"></el-table-column>
+              <el-table-column prop="city" label="市区" width="120"></el-table-column>
+              <el-table-column prop="address" label="地址" width="300"></el-table-column>
+              <el-table-column prop="zip" label="邮编" width="120"></el-table-column>
+              <el-table-column fixed="right" label="操作" width="120">
+                <template slot-scope="scope">
+                  <el-button
+                    @click.native.prevent="deleteRow(scope.$index, tableData)"
+                    type="text"
+                    size="small"
+                  >移除</el-button>
+                </template>
+              </el-table-column>
+            </el-table>
+          </div>
+        </el-tab-pane>
+        <el-tab-pane label="代发货" name="second">
+          <div class="block-input8">
+            <el-table :data="pepleData" style="width: 100%" max-height="250">
+              <el-table-column fixed prop="date" label="日期" width="150"></el-table-column>
+              <el-table-column prop="name" label="姓名" width="120"></el-table-column>
+              <el-table-column prop="province" label="省份" width="120"></el-table-column>
+              <el-table-column prop="city" label="市区" width="120"></el-table-column>
+              <el-table-column prop="address" label="地址" width="300"></el-table-column>
+              <el-table-column prop="zip" label="邮编" width="120"></el-table-column>
+              <el-table-column fixed="right" label="操作" width="120">
+                <template slot-scope="scope">
+                  <el-button
+                    @click.native.prevent="deleteRow(scope.$index, pepleData)"
+                    type="text"
+                    size="small"
+                  >移除</el-button>
+                </template>
+              </el-table-column>
+            </el-table>
+          </div>
+        </el-tab-pane>
+        <el-tab-pane label="待付款" name="third">
+           <div class="block-input8">
+      <el-table :data="apiData" style="width: 100%" max-height="250">
+        <el-table-column fixed prop="date" label="日期" width="150"></el-table-column>
+        <el-table-column prop="name" label="姓名" width="120"></el-table-column>
+        <el-table-column prop="province" label="省份" width="120"></el-table-column>
+        <el-table-column prop="city" label="市区" width="120"></el-table-column>
+        <el-table-column prop="address" label="地址" width="300"></el-table-column>
+        <el-table-column prop="zip" label="邮编" width="120"></el-table-column>
+        <el-table-column fixed="right" label="操作" width="120">
+          <template slot-scope="scope">
+            <el-button
+              @click.native.prevent="deleteRow(scope.$index, apiData)"
+              type="text"
+              size="small"
+            >移除</el-button>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
+        </el-tab-pane>
+        <el-tab-pane label="已发货" name="fourth"><img src="../../img/images/02_03.png" alt=""></el-tab-pane>
+        <el-tab-pane label="已完成" name="fived"><img src="../../img/images/02_03.png" alt=""></el-tab-pane>
+        <el-tab-pane label="已关闭" name="sixed"><img src="../../img/images/02_03.png" alt=""></el-tab-pane>
+        <el-tab-pane label="退款中" name="sevend">
+          <div class="block-input8">
+      <el-table :data="moneyData" style="width: 100%" max-height="250">
+        <el-table-column fixed prop="date" label="日期" width="150"></el-table-column>
+        <el-table-column prop="name" label="姓名" width="120"></el-table-column>
+        <el-table-column prop="province" label="省份" width="120"></el-table-column>
+        <el-table-column prop="city" label="市区" width="120"></el-table-column>
+        <el-table-column prop="address" label="地址" width="300"></el-table-column>
+        <el-table-column prop="zip" label="邮编" width="120"></el-table-column>
+        <el-table-column fixed="right" label="操作" width="120">
+          <template slot-scope="scope">
+            <el-button
+              @click.native.prevent="deleteRow(scope.$index, moneyData)"
+              type="text"
+              size="small"
+            >移除</el-button>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
+        </el-tab-pane>
       </el-tabs>
     </div>
 
     <div class="block-input7">
       <span class="shangp">商品</span>
-      <!-- <div class="order_center"> -->
-        <span class="center_logo">单价(元) / 数量</span>
-        <span class="center_logo">售后</span>
-        <span class="center_logo">买家 / 收货人</span>
-        <span class="center_logo">配送方式</span>
-        <span class="center_logo">实收金额(元)</span>
-        <span class="center_logo">订单状态</span>
-      <!-- </div> -->
+      <span class="center_logo">单价(元) / 数量</span>
+      <span class="center_logo">售后</span>
+      <span class="center_logo">买家 / 收货人</span>
+      <span class="center_logo">配送方式</span>
+      <span class="center_logo">实收金额(元)</span>
+      <span class="center_logo">订单状态</span>
       <span class="chaoz">操作</span>
     </div>
-
+    <!-- 
     <div class="block-input8">
       <el-table :data="tableData" style="width: 100%" max-height="250">
         <el-table-column fixed prop="date" label="日期" width="150"></el-table-column>
@@ -172,7 +250,7 @@
           </template>
         </el-table-column>
       </el-table>
-    </div>
+    </div>-->
 
     <div class="block-input9">
       <div class="block">
@@ -195,6 +273,23 @@
 export default {
   data() {
     return {
+      arr: [
+        { value: "a", label: "微信-商家小程序" },
+        { value: "b", label: "微信商家微商城" },
+        { value: "c", label: "百度小程序" },
+        { value: "d", label: "爱逛" },
+        { value: "e", label: "支付宝" },
+        { value: "f", label: "腾讯QQ" }
+      ],
+      city: [
+        { value: "a", label: "普通订单" },
+        { value: "b", label: "代付订单" },
+        { value: "c", label: "送礼订单" },
+        { value: "d", label: "心愿订单" },
+        { value: "e", label: "酒店订单" },
+        { value: "f", label: "团购" }
+      ],
+      star: [{ value: "a", label: "不加" }, { value: "a", label: "加" }],
       currentPage4: 4,
       activeName: "first",
       tableData: [
@@ -208,54 +303,91 @@ export default {
         },
         {
           date: "2016-05-02",
-          name: "王小虎",
+          name: "钱穆用",
           province: "上海",
           city: "普陀区",
-          address: "上海市普陀区金沙江路 1518 弄",
+          address: "武汉市普陀区金沙江路 1518 弄",
           zip: 200333
         },
         {
-          date: "2016-05-04",
-          name: "王小虎",
-          province: "上海",
+          date: "2017-05-04",
+          name: "王麻子",
+          province: "深圳市",
           city: "普陀区",
-          address: "上海市普陀区金沙江路 1518 弄",
+          address: "深圳市普陀区金沙江路 1518 弄",
           zip: 200333
         },
         {
-          date: "2016-05-01",
-          name: "王小虎",
-          province: "上海",
+          date: "2018-05-01",
+          name: "关云长",
+          province: "重庆市",
           city: "普陀区",
-          address: "上海市普陀区金沙江路 1518 弄",
+          address: "重庆市普陀区金沙江路 1518 弄",
           zip: 200333
         },
         {
-          date: "2016-05-08",
-          name: "王小虎",
+          date: "2019-05-08",
+          name: "张小飞",
           province: "上海",
           city: "普陀区",
-          address: "上海市普陀区金沙江路 1518 弄",
+          address: "美国市普陀区金沙江路 1518 弄",
+          zip: 200333
+        },
+        {
+          date: "2019-012-06",
+          name: "牛牛",
+          province: "加拿大",
+          city: "普陀区",
+          address: "加拿大市普陀区金沙江路 1518 弄",
+          zip: 200333
+        },
+        {
+          date: "2018-05-07",
+          name: "斗地主",
+          province: "烟台",
+          city: "普陀区",
+          address: "烟台市普陀区金沙江路 1518 弄",
+          zip: 200333
+        }
+      ],
+      pepleData: [
+        {
+          date: "2016-05-07",
+          name: "麻将王",
+          province: "海口",
+          city: "普陀区",
+          address: "海口市普陀区金沙江路 1518 弄",
           zip: 200333
         },
         {
           date: "2016-05-06",
           name: "王小虎",
-          province: "上海",
+          province: "荆州",
           city: "普陀区",
-          address: "上海市普陀区金沙江路 1518 弄",
-          zip: 200333
-        },
-        {
-          date: "2016-05-07",
-          name: "王小虎",
-          province: "上海",
-          city: "普陀区",
-          address: "上海市普陀区金沙江路 1518 弄",
-          zip: 200333
+          address: "荆州市普陀区金沙江路 1518 弄",
+          zip: 2005465
         }
       ],
-
+      apiData:[
+        {
+           date: "20119-11-06",
+          name: "李小龙",
+          province: "深圳",
+          city: "宝安",
+          address: "深圳宝安弄死你宿舍110",
+          zip: 112009
+        }
+      ],
+    moneyData:[
+        {
+           date: "20119-11-08",
+          name: "李二",
+          province: "深圳",
+          city: "宝安",
+          address: "深圳宝安抠脚大汉看见了",
+          zip: 112100000
+        }
+    ],
       options: [
         {
           value: "选项1",
@@ -280,7 +412,14 @@ export default {
       ],
       value: "",
       input: "",
-      value_search: ""
+      value_search: "",
+      value_o: "",
+      value_p: "",
+      value_q: "",
+      value_r: "",
+      value_s: "",
+      value_t: "",
+      value_m: ""
     };
   },
   methods: {
@@ -339,7 +478,7 @@ export default {
   background: whitesmoke;
 }
 .order-main {
-  width: 1258px;
+  width: 1180px;
   height: 340px;
   background: #f7f8fa;
   margin: 35px auto;
@@ -394,27 +533,26 @@ export default {
   margin-top: 15px;
 }
 .block-input6 {
-  width: 1258px;
+  width: 1180px;
   height: 40px;
   background: #f7f8fa;
   margin: 0 auto;
 }
 .block-input7 {
-  width: 1258px;
+  width: 1180px;
   height: 40px;
   background: #f7f8fa;
   margin: 30px auto;
 }
 .block-input8 {
-  width: 1258px;
+  width: 1180px;
   background: #f7f8fa;
-  margin: 30px auto;
+  margin: 80px auto;
 }
 .block-input9 {
-  width: 1258px;
-
-  background: #f7f8fa;
-  margin: 20px auto;
+  width: 1170px;
+  margin-top: 300px;
+  margin-left: 20px;
 }
 .btn1 {
   margin-left: 70px;
@@ -433,7 +571,11 @@ export default {
   line-height: 40px;
   float: right;
 }
-.center_logo{
-    margin-left: 45px;
+.center_logo {
+  margin-left: 45px;
+}
+img{
+  margin-left: 500px;
+  margin-top: 130px;
 }
 </style>

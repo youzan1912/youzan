@@ -1,0 +1,26 @@
+{
+    "err": 0,
+    "msg": "success",
+    "data":[
+        {
+            "title":"支付订单数",
+            "num":1,
+            "before":0
+        },
+        {
+            "title":"支付金额(元)",
+            "num":666,
+            "before":999
+        },
+        {
+            "title":"浏览量",
+            "num":100,
+            "before":60
+        },
+        {
+            "title":"累计客户数",
+            "num":1234,
+            "before":165
+        }
+    ]
+}

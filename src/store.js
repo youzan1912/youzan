@@ -26,13 +26,54 @@ function fetch(api,callback){
 
 const store=new Vuex.Store({
     state:{
-        
+        isLogin:false,
+        navList: [],
+        payList:[],
+        targetList:[],
+        assList:[]
     },
     mutations:{
-    
+        changeLogin(state){
+            state.isLogin = !state.isLogin
+        },
+        setNavList(state, payload) {
+            state.navList = payload
+          },
+          updatePayList(state,payload){
+            state.payList=payload
+          },
+          updateTargetList(state,payload){
+            state.targetList=payload
+          },
+          updateAssList(state,payload){
+            state.assList=payload
+          }
     },
     actions:{
-        
+        getLogin(store){
+                store.commit('changeLogin')
+        },
+        getNavList(store) {
+            fetch('/db/nav.json', data=>{
+              console.log('导航数据', data)
+              store.commit('setNavList', data)
+            })
+        },
+        getPayList(store){
+            fetch('/db/pay.json',data=>{
+                store.commit('updatePayList',data)            
+            })
+        },
+        getTargetList(store){
+            fetch('/db/target.json',data=>{
+                store.commit('updateTargetList',data)            
+            })
+        },
+        getAssList(store){
+            fetch('/db/ass.json',data=>{
+                store.commit('updateAssList',data)
+            })
+        }
     }
 })
 
