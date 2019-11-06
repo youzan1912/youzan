@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!-- <Login ></Login> -->
-    <div v-if="isLogin"><router-view name='login'></router-view></div>
+    <div v-if="$route.path=='/login'"><router-view name='login'></router-view></div>
     
     <el-container v-else>
       <el-aside width="120px"><Aside></Aside></el-aside>
@@ -19,7 +19,6 @@ import Header from '@/components/Header.vue'
 import Main from '@/components/Main.vue'
 // import Login from '@/views/login/Login.vue'
 
-import {mapState} from 'vuex'
 
 export default {
   name: 'app',
@@ -30,7 +29,11 @@ export default {
     // Login
   },
    computed:{
-        ...mapState(['isLogin']),  
+      //  isLogin(){
+      //       let res=localStorage.getItem('login')
+      //       console.log(res)
+      //       return res && (JSON.parse(res).isLogin === 1)
+      //   }
     }
 }
 </script>

@@ -1,21 +1,51 @@
 <template lang="html">
 <div class="header">
   <div class="header-left">
-    <span>用户名</span>
+    <span v-text="username">用户名</span>
     <span class="blue">试用期</span>
     <span>SVIP</span>
     <span>有赞担保</span>
   </div>
   <div class="header-right">
     <i class="fa fa-user-circle"></i>
-    <span>13200000000</span>
+    <el-popover
+    placement="top-start"
+    width="200"
+    trigger="hover">
+    <el-button @click='logout'>退出登录</el-button>
+    <el-button slot="reference" type="text"><span v-text="username">13200000000</span></el-button>
+    </el-popover>
     <i class="fa fa-angle-right"></i>
   </div>
 </div>
 </template>
 
 <script>
+//映射mapState,mapActions
+import {mapState,mapActions} from 'vuex'
+    
 export default {
+    data:function(){
+      return{
+      }
+    },
+    mounted(){
+      this.getUser()
+    },
+    computed:{
+        ...mapState(['username'])
+    },
+    methods:{
+      ...mapActions(['getUser']),
+      logout(){
+            //清除local storage中的login
+            localStorage.removeItem('login')
+            //跳转
+            setTimeout(()=>{
+                this.$router.replace('/login')
+            },1000)
+        }
+    }
 }
 </script>
 

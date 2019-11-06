@@ -26,16 +26,13 @@ function fetch(api,callback){
 
 const store=new Vuex.Store({
     state:{
-        isLogin:false,
         navList: [],
         payList:[],
         targetList:[],
-        assList:[]
+        assList:[],
+        username:""
     },
     mutations:{
-        changeLogin(state){
-            state.isLogin = !state.isLogin
-        },
         setNavList(state, payload) {
             state.navList = payload
           },
@@ -47,12 +44,12 @@ const store=new Vuex.Store({
           },
           updateAssList(state,payload){
             state.assList=payload
+          },
+          updateUser(state,payload){
+              state.username=payload
           }
     },
     actions:{
-        getLogin(store){
-                store.commit('changeLogin')
-        },
         getNavList(store) {
             fetch('/db/nav.json', data=>{
               console.log('导航数据', data)
@@ -73,8 +70,17 @@ const store=new Vuex.Store({
             fetch('/db/ass.json',data=>{
                 store.commit('updateAssList',data)
             })
+        },
+        getUser(store){
+            let res=localStorage.getItem('login')
+            console.log(res)
+            if(res){
+                store.commit('updateUser',JSON.parse(res).username)
+            console.log(store.state.username)
+            }else{
+                store.commit('updateUser',"未登录")
+            }
         }
     }
 })
-
 export default store

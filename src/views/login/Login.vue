@@ -15,13 +15,13 @@
                         <div class="content">
                             <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
                                 <el-form-item label="用户名" prop="user">
-                                    <el-input type="username" v-model="ruleForm.user" autocomplete="off"></el-input>
+                                    <el-input type="username" v-model="ruleForm.user" autocomplete="off" ref="user"></el-input>
                                 </el-form-item>
                                 <el-form-item label="密码" prop="pass">
-                                    <el-input type="password" v-model="ruleForm.pass" autocomplete="off"></el-input>
+                                    <el-input type="password" v-model="ruleForm.pass" autocomplete="off" ref="pwd"></el-input>
                                 </el-form-item>
                                 <el-form-item>
-                                    <el-button type="primary" @click="submitForm('ruleForm')">提交</el-button>
+                                    <el-button type="primary" @touchstart="submitForm('ruleForm')" @click='login'>提交</el-button>
                                     <el-button @click="resetForm('ruleForm')">重置</el-button>
                                 </el-form-item>
                             </el-form>
@@ -45,13 +45,14 @@
 </template>
 
 <script>
-
+var phone=""
+var users=""
 export default {
     data:function() {
       var validatePass = (rule, value, callback) => {
            var pwd=value.replace(/\s/g, "");
           let patrn=/^(\w){6,20}$/;  
-        if (value === '') {
+        if (value === ''){
           callback(new Error('请输入密码'));
         } else {
           if (!patrn.test(pwd)) {
@@ -59,13 +60,13 @@ export default {
           }else{
               callback()
           }
-          callback();
+          callback(users=value);
         }
       };
       var validatePass2  = (rule, value, callback) => {
             var phone=value.replace(/\s/g, "");//去除空格
             //校验手机号，号段主要有(不包括上网卡)：130~139、150~153，155~159，180~189、170~171、176~178。14号段为上网卡专属号段
-            let regs = /^((13[0-9])|(17[0-1,6-8])|(15[^4,\\D])|(18[0-9]))\d{8}$/;
+            let regs = /^((13[0-9])|(17[0-3,6-8])|(15[^4,\\D])|(18[0-9]))\d{8}$/;
             if(value.length === ''){
                 callback(new Error('请输入手机号'));
             }else{
@@ -74,12 +75,14 @@ export default {
                 }else{
                     callback();
                 }
+                callback((phone=value));
             }
         };
       return {
         ruleForm: {
           pass: '',
-          user:''
+          user:'',
+          isClick:0
         },
         rules: {
           pass: [
@@ -102,6 +105,8 @@ export default {
         submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
+              this.isClick===1
+              console.log(phone,users,this.isClick)
             this.$router.replace('/home')
           } else {
             console.log('error submit!!');
@@ -111,7 +116,24 @@ export default {
       },
       resetForm(formName) {
         this.$refs[formName].resetFields();
-      }
+      },
+      login(){
+            let res={
+                token:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c',
+                isLogin:1,
+                username:this.$refs.user.value,
+                password:this.$refs.pwd.value
+            }
+            console.log(res)
+            localStorage.setItem('login',JSON.stringify(res))
+            let ress = localStorage.getItem('login')
+            let admin=JSON.parse(ress).username
+            let passwords=JSON.parse(ress).password
+            if(admin&&passwords){
+                this.$router.replace('/home')
+            }
+            
+        }
     }
   }  
 </script>
