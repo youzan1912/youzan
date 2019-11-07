@@ -59,7 +59,12 @@ const store = new Vuex.Store({
           }
       })
       state.customer2 = arr
-    }
+    },
+                                  
+      deleteAll(state,payload){
+        state.customer.splice(payload,1)
+        state.customer2.splice(payload,1)
+      }
   },
 
   actions: {

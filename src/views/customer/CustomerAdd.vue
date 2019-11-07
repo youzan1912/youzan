@@ -149,7 +149,7 @@ export default {
     }
   },
   mounted() {
-    //this.getAdd(this.custArr);
+  
   },
   computed: {
     ...mapState(["customer2"])
