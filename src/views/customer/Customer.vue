@@ -12,12 +12,9 @@
     <div class="crutomerYc">
           <CrutomerYc></CrutomerYc>
       </div>
-      
-    
-
          <div class="customerOperation">
          <CustomerOperation></CustomerOperation>
-        </div>
+      </div>
 
     </div>
 </template>
@@ -51,6 +48,7 @@ export default {
     width: 1350px;
     height: 60px;
     padding-top:20px;
+     background-color: #F7F8FA;
 }
 .curtomerMain{
     width: 1350px;

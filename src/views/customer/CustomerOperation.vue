@@ -45,12 +45,9 @@
       label="操作"
       width="220">
       <template slot-scope="scope">
-        <el-button
-          @click.native.prevent="deleteRow(scope.$index, tableData)"
-          type="text"
-          size="small">
-          设置权益卡|加标签|更多
-        </el-button>
+       <el-button  type="text" size="small">设置权益卡</el-button>
+       <el-button  type="text" size="small">加标签</el-button>
+       <el-button  @click="dele(scope.$index)" type="text" size="small">移除</el-button>
       </template>
     </el-table-column>
   </el-table>
@@ -77,7 +74,7 @@ import {mapState,mapActions, mapMutations} from 'vuex'
     },
     methods: {
       ...mapActions(['getCustomer']),
-      ...mapMutations(['updateOrderList']),
+      ...mapMutations(['updateOrderList','deleteAll']),
 
         deleteRow(index, rows) {
         rows.splice(index, 1);
@@ -89,7 +86,10 @@ import {mapState,mapActions, mapMutations} from 'vuex'
       handleCurrentChange(val) {
         console.log(`当前页: ${val}`);
         this.updateOrderList({page:val})
-      }
+      },
+      dele(index) {   //删除客户
+      this.deleteAll(index)
+    },
     },
     mounted(){
         this.handleCurrentChange()

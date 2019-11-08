@@ -161,7 +161,48 @@ const store=new Vuex.Store({
               // store.commit('updateOrderList',payload)
             })
           }
+<<<<<<< HEAD
     }
+=======
+      })
+      state.customer2 = arr
+    },
+                                  
+      deleteAll(state,payload){
+        state.customer.splice(payload,1)
+        state.customer2.splice(payload,1)
+      }
+  },
+
+  actions: {
+    getNavList(store) {
+      fetch('/db/nav.json', data=>{
+        console.log('导航数据', data)
+        store.commit('setNavList', data)
+      })
+    },
+    getCustomer(store){
+      fetch('/db/customer.json',(data)=>{
+        let payload = {
+          page: 1,
+          list: data,
+          customer:''
+      }
+      store.commit('updateOrderList', payload)
+        // console.log(data)
+        // console.log('当前页',page)
+        // store.commit('updateOrderList',payload)
+      })
+    },
+    // getAdd(store){
+    //   fetch('/db/customer.json', (data) => {
+    //     console.log(data)
+    //   store.commit('updateAdd',data)
+    // })
+    // }
+
+  }
+>>>>>>> dev
 })
 export default store
 
