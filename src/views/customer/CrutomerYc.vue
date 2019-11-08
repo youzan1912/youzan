@@ -1,10 +1,6 @@
 <template>
 <div>
-   
-    
-    <div>
-    
-
+  <div>
     <div>
       <el-collapse-transition>
         <div v-show="show3">
@@ -12,81 +8,79 @@
          <div class="book1"> 
              <span>客户身份： </span>
              <el-select v-model="value" placeholder="请选择">
-                <el-option v-model="value">
-                   </el-option>
+             <el-option v-model="value">
+             </el-option>
              </el-select>
 
              <span>权益卡： </span>
              <el-select v-model="value" placeholder="请选择">
-                <el-option v-model="value">
-                   </el-option>
+             <el-option v-model="value">
+             </el-option>
              </el-select>
 
-              <span>性别： </span>
+             <span>性别： </span>
              <el-select v-model="value" placeholder="请选择">
-                <el-option v-model="value">
-                   </el-option>
+             <el-option v-model="value">
+             </el-option>
              </el-select>
          </div>
         
 
           <div class="book2"> 
-
             <div class="laiyuan1">
-              <span class="bkspan1">来源渠道： </span>
-             <el-select v-model="value" placeholder="请选择">
-                <el-option v-model="value">
-                   </el-option>
-             </el-select>
-            </div>
+            <span class="bkspan1">来源渠道： </span>
+            <el-select v-model="value" placeholder="请选择">
+            <el-option v-model="value">
+            </el-option>
+            </el-select>
+          </div>
 
             <div  class="laiyuan2">
              <span class="bkspan2">来源方式：</span>
              <el-select v-model="value" placeholder="请选择">
-                <el-option v-model="value">
-                   </el-option>
+             <el-option v-model="value">
+             </el-option>
              </el-select>
             </div>
 
-            <div class="laiyuan3">
+          <div class="laiyuan3">
              <span class="bkspan3">微信地域： </span>
              <el-select v-model="value" placeholder="请选择">
-                <el-option v-model="value">
-                   </el-option>
+             <el-option v-model="value">
+             </el-option>
              </el-select>
-             </div>
+            </div>
 
          </div>
-     <div class="bq1">
-               <span>标签： </span>
-             <el-select v-model="value" placeholder="请选择">
-                <el-option v-model="value" >
-                   </el-option>
-             </el-select>
-             </div>
+      <div class="bq1">
+            <span>标签： </span>
+            <el-select v-model="value" placeholder="请选择">
+            <el-option v-model="value" >
+            </el-option>
+            </el-select>
+        </div>
 
         <div class="ddd"> 
             <div class="goumai">
-               <span class="block">购买次数：</span>
-           
+              <span class="block">购买次数：</span>
               <span>                        
-                <el-input placeholder="0" ><i slot="suffix" style="font-style:normal;line-height:40px">次</i></el-input>
+              <el-input placeholder="0" ><i slot="suffix" style="font-style:normal;line-height:40px">次</i></el-input>
               </span>
               <span>-</span>
               <span>
-                <el-input placeholder="0"><i slot="suffix" style="font-style:normal;line-height:40px">次</i></el-input>
+              <el-input placeholder="0"><i slot="suffix" style="font-style:normal;line-height:40px">次</i></el-input>
               </span>
           
           </div>
 
           <div class="danjia">
-                <span class="block">笔单价：</span>
+              <span class="block">笔单价：</span>
               <span>                        
-                <el-input placeholder="0"><i slot="suffix" style="font-style:normal;line-height:40px">元</i></el-input>
+              <el-input placeholder="0"><i slot="suffix" style="font-style:normal;line-height:40px">元</i></el-input>
               </span>
               <span>-</span>
               <span>
-                <el-input placeholder="0" ><i slot="suffix" style="font-style:normal;line-height:40px">元</i></el-input>
+              <el-input placeholder="0" ><i slot="suffix" style="font-style:normal;line-height:40px">元</i></el-input>
               </span>
            </div>
 
@@ -102,7 +96,7 @@
               <span>
                 <el-input placeholder="0" ><i slot="suffix" style="font-style:normal;line-height:40px">分</i></el-input>
               </span>
-           </div>
+            </div>
 
 
             <div class="jine">
@@ -114,7 +108,7 @@
               <span>
                 <el-input placeholder="0"><i slot="suffix" style="font-style:normal;line-height:40px">元</i></el-input>
               </span>
-           </div>
+            </div>
 
 
           <div class="xfje">
@@ -126,26 +120,21 @@
               <span>
                 <el-input placeholder="0"><i slot="suffix" style="font-style:normal;line-height:40px">元</i></el-input>
               </span>
-         </div>  
-</div>
-
-
+          </div>  
+        </div>
 
         </div>
       </el-collapse-transition>
     </div>
   
-         <div class="Yc">
+    <div class="Yc">
       <div>
       <el-button type="primary" @click="sx">筛选</el-button>
       <el-link :underline="false">重置筛选条件</el-link>
       <el-button @click="show3 = !show3">展开</el-button>
-      </div>
+     </div>
     </div>
-    
-
   </div>
-
 </div>
 </template>
 
@@ -178,10 +167,9 @@ export default {
 <style lang="scss">
 .Yc{
     float: left;
-    margin-left:-765px;
     padding-top:20px;
     background-color: #F7F8FA;
-    width:2110px;
+    width:580px;
     height: 100px;
 }
 .el-link{
