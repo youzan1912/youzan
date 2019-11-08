@@ -167,48 +167,48 @@ export default {
   margin-top: 10px;
 }
 .shenfen {
-  margin-left: -150px;
+  margin-left: 20px;
   span {
     padding: 10px;
   }
 }
 .phone {
-  margin-left: -65px;
+  margin-left: 20px;
   margin-top: 20px;
   span {
     padding: 10px;
   }
 }
 .names {
-  margin-left: -52px;
+   margin-left: 35px;
   margin-top: 20px;
   span {
     padding: 10px;
   }
 }
 .bq {
-  margin-left: -52px;
+  margin-left: 35px;
   margin-top: 20px;
   span {
     padding: 10px;
   }
 }
 .sex {
-  margin-left: -166px;
+  margin-left: 35px;
   margin-top: 20px;
   span {
     padding: 10px;
   }
 }
 .paty {
-  margin-left: -52px;
+ margin-left: 35px;
   margin-top: 20px;
   span {
     padding: 10px;
   }
 }
 .address {
-  margin-left: -52px;
+  margin-left: 35px;
   margin-top: 20px;
   span {
     padding: 10px;
@@ -216,18 +216,19 @@ export default {
 }
 .beizhu {
   margin-top: 20px;
+      
   span {
-    margin-left: -268px;
+     margin-left: 45px;
   }
   .ipt {
     width: 160px;
-    margin-left: 99px;
+    margin-left: 82px;
     margin-top: -20px;
     height: 50px;
   }
 }
 .btm {
   margin-top: -30px;
-  margin-left: 241px;
+  margin-left: 240px;
 }
 </style>

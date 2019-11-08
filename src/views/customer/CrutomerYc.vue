@@ -171,6 +171,7 @@ export default {
     background-color: #F7F8FA;
     width:580px;
     height: 100px;
+    margin-left:110px 
 }
 .el-link{
     margin-right: 5px;
@@ -178,22 +179,23 @@ export default {
 }
 .book1{
    margin-top: 20px;
-  margin-left: -230px;
+  margin-left: -55px;
   >span{
     margin-left: 80px;
   }
 }.laiyuan1{
-  margin-left: -870px;
+  margin-left: -865px;
 }.laiyuan2{
   margin-top:-40px;
-   margin-left: -130px;
+   margin-left: -491px;
 }.laiyuan3{
   margin-top:-40px;
-   margin-left: 570px;
+   margin-left: -144px;
 }.book2{
   margin-top:20px;
+  margin-left: 890px;
 }.bq1{
-  margin-left:-840px;
+  margin-left:56px;
   margin-top:20px;
 }.el-input{
   width:220px !important;
@@ -204,11 +206,11 @@ export default {
 }
 .goumai{
   margin-top: -40px;
-  margin-left: -122px;
+  margin-left: 400px;
 }
 .danjia{
   margin-top: -40px;
-  margin-left: 600px;
+  margin-left: 765px;
 }
 .ccc{
   .el-input{
@@ -217,14 +219,14 @@ export default {
 }
 .yue{
    margin-top: 20px;
-  margin-left: -830px;
+  margin-left: 60px;
 }
 .jine{
   margin-top: -40px;
-  margin-left: -120px;
+  margin-left: 400px;
 }.xfje{
   margin-top: -40px;
-  margin-left: 550px;
+  margin-left: 715px;
 }
 
 

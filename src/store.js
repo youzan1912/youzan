@@ -33,13 +33,10 @@ const store=new Vuex.Store({
         username:"",
         goodsList:[],
         goodsList2:[],
-<<<<<<< HEAD
         goodsList3:[],
         customer:[],
-        customer2:[]
-=======
-        goodsList3:[]
->>>>>>> test
+        customer2:[],
+        userList:[]
          
     },
     mutations:{
@@ -111,7 +108,6 @@ const store=new Vuex.Store({
             state.goodsList3= arr1
              
         },
-<<<<<<< HEAD
         updateOrderList(state,payload){  //分页
             if (payload.list) {
                 state.customer=payload.list
@@ -134,9 +130,14 @@ const store=new Vuex.Store({
                 }
             })
             state.customer2 = arr
+          },
+          deleteAll(state,payload){
+            state.customer.splice(payload,1)
+            state.customer2.splice(payload,1)
+          },
+          updateUserList(state,payload){
+            state.userList=payload
           }
-=======
->>>>>>> test
         
     },
     actions:{
@@ -189,49 +190,13 @@ const store=new Vuex.Store({
               // console.log('当前页',page)
               // store.commit('updateOrderList',payload)
             })
-          }
-<<<<<<< HEAD
+        },
+        getUserListI(store){
+            fetch('/db/user.json',data=>{
+                store.commit('updateUserList',data)   
+            })
+        }
     }
-=======
-      })
-      state.customer2 = arr
-    },
-                                  
-      deleteAll(state,payload){
-        state.customer.splice(payload,1)
-        state.customer2.splice(payload,1)
-      }
-  },
-
-  actions: {
-    getNavList(store) {
-      fetch('/db/nav.json', data=>{
-        console.log('导航数据', data)
-        store.commit('setNavList', data)
-      })
-    },
-    getCustomer(store){
-      fetch('/db/customer.json',(data)=>{
-        let payload = {
-          page: 1,
-          list: data,
-          customer:''
-      }
-      store.commit('updateOrderList', payload)
-        // console.log(data)
-        // console.log('当前页',page)
-        // store.commit('updateOrderList',payload)
-      })
-    },
-    // getAdd(store){
-    //   fetch('/db/customer.json', (data) => {
-    //     console.log(data)
-    //   store.commit('updateAdd',data)
-    // })
-    // }
-
-  }
->>>>>>> dev
 })
 export default store
 

@@ -79,6 +79,7 @@ export default {
         width: 80%;
         height: 340px;
         margin: 0 auto;
+        background: white;
         .top{
             .tabs{
                 display: flex;

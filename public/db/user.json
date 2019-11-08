@@ -1,0 +1,40 @@
+{
+    "err": 0,
+    "msg": "success",
+    "data": [
+        {
+            "title": "发布商品",
+            "class": "el-icon-mobile-phone"
+        },
+        {
+            "title": "分销员",
+            "class": "el-icon-s-custom"
+        },
+        {
+            "title": "多网点",
+            "class": "el-icon-s-platform"
+        },
+
+        {
+            "title": "小程序",
+            "class": "el-icon-place"
+        },
+        {
+            "title": "微信公众号",
+            "class": "el-icon-s-comment"
+        },
+        {
+            "title": "收入/提现",
+            "class": "el-icon-picture"
+        },
+        {
+            "title": "智能客服",
+            "class": "el-icon-service"
+        },
+        {
+            "title": "订单查询",
+            "class": "el-icon-s-platform"
+        }
+
+    ]
+}

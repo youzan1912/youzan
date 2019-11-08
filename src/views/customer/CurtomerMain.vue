@@ -84,7 +84,7 @@ export default {
     }
     .block{
        padding-top:80px;
-       margin-left: -720px;
+    //    margin-left: -720px;
        margin-top:20px;
        >div{
            margin-top:20px;
@@ -95,9 +95,7 @@ export default {
        width: 220px !important;
    }
    .span1{
-       margin-left:-50px;
+       margin-left:47px;
    }
-   .gjc{
-       margin-left:-80px;
-   }
+
 </style>
