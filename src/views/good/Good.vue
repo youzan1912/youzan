@@ -31,20 +31,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-<<<<<<< HEAD
-    .meum-list{
-        width:116px;
-        height:940px;
-        background:black;
-        float: left;
-    }
-    .ProductContent-box{
-        background:#F7F8FA;
-        overflow: hidden;
-        min-height:500px;
-    }
-</style>
-=======
  
 .ProductContent-box {
   background: #f7f8fa;
@@ -52,4 +38,3 @@ export default {
   min-height: 500px;
 }
 </style>
->>>>>>> test
