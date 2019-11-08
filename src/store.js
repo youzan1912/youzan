@@ -33,9 +33,13 @@ const store=new Vuex.Store({
         username:"",
         goodsList:[],
         goodsList2:[],
+<<<<<<< HEAD
         goodsList3:[],
         customer:[],
         customer2:[]
+=======
+        goodsList3:[]
+>>>>>>> test
          
     },
     mutations:{
@@ -58,12 +62,23 @@ const store=new Vuex.Store({
             state.goodsList=payload
         },
         updateGoodsList2(state,payload){
-            state.goodsList=payload
+            state.goodsList2=payload
             console.log(state.goodsList2)
         },
         updateGoodsList3(state,payload){
-            state.goodsList=payload
-             
+            console.log(payload)
+            let arr1 =state.goodsList;
+            let arr2=payload;
+         
+            for(let i=0; i<arr1.length; i++) {
+                      for(let j=0; j<arr2.length; j++) {
+                          if (arr1[i].id === arr2[j].id) {
+                              arr1.splice(i, 1)
+                          }
+                      }
+                  }
+                  state.goodsList3=arr2
+                  state.goodsList = arr1
         },
          
         deleteGoods(state, payload) {
@@ -78,13 +93,25 @@ const store=new Vuex.Store({
                     }
                 }
             }
-            state.goodsList = arr1
-        },
-        changeGoods(state, payload){
-            console.log(state, payload)
-            state.goodsList3=payload
+            state.goodsList= arr1
              
         },
+        deleteGoods2(state, payload) {
+            console.log(state, payload)
+            let arr1 = state.goodsList3
+            let arr2 = payload
+            console.log('arr2', arr2)
+            for(let i=0; i<arr1.length; i++) {
+                for(let j=0; j<arr2.length; j++) {
+                    if (arr1[i].id === arr2[j].id) {
+                        arr1.splice(i, 1)
+                    }
+                }
+            }
+            state.goodsList3= arr1
+             
+        },
+<<<<<<< HEAD
         updateOrderList(state,payload){  //分页
             if (payload.list) {
                 state.customer=payload.list
@@ -108,6 +135,8 @@ const store=new Vuex.Store({
             })
             state.customer2 = arr
           }
+=======
+>>>>>>> test
         
     },
     actions:{

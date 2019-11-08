@@ -2,7 +2,7 @@
   <div class="productTable">
     <el-row type="flex" >
       <el-table
-        :data="goodsList.slice((currentPage-1)*pagesize,currentPage*pagesize)" style="width: 100%"
+        :data="goodsList3.slice((currentPage-1)*pagesize,currentPage*pagesize)"   style="width: 100%"
         :default-sort="{prop: 'date', order: 'descending'}"
         @selection-change="handleSelectionChange"
       >
@@ -31,7 +31,7 @@
     <el-row type="flex" style="margin-top: 20px" align="middle">
       <el-col :span="10">
         <el-button>改分组</el-button>
-        <el-button @click="changeGoods" >下架</el-button>
+        <el-button  >上架</el-button>
         <el-button @click="deleteBtn">删除</el-button>
         <el-button>批量设置</el-button>
       </el-col>
@@ -42,7 +42,7 @@
         </el-col>
 
         <el-col :span="1">
-          <span v-text="goodsList.length">3</span>
+          <span >3</span>
         </el-col>
 
         <el-col :span="2">
@@ -68,34 +68,30 @@
   </div>
 </template>
 <script>
-import { mapState, mapActions, mapMutations } from "vuex";
+import { mapState,mapMutations } from "vuex";
 export default {
   data() {
     return {
       total: 1,
-      pagesize: 3,
+      pagesize: 4,
       currentPage: 1,
       multipleSelection: [],
        
     };
   },
   computed: {
-    ...mapState(["goodsList","goodsList3"])
+    ...mapState(["goodsList3"])
   },
   methods: {
     deleteBtn() {
-      this.deleteGoods(this.multipleSelection);
-    },
-    changeGoods(){
-     
-      this.updateGoodsList3(this.multipleSelection)
+      this.deleteGoods2(this.multipleSelection);
     },
     handleCurrentChange(currentPage) {
       //当前页面
       this.currentPage = currentPage;
     },
-    ...mapMutations(["deleteGoods","updateGoodsList3"  ]),
-    ...mapActions(["getGoodsList"]),
+    ...mapMutations(["deleteGoods","updateGoodsList3","deleteGoods2"]),
+     
 
     handleSelectionChange(val) {
       this.multipleSelection = val;
@@ -103,12 +99,9 @@ export default {
     }
   },
   mounted() {
-    this.getGoodsList();
+      
   },
-  updated() {
-    this.total = this.goodsList.length;
-     
-  }
+ 
 };
 </script>
 <style lang="scss" scoped>

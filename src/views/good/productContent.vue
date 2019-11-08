@@ -12,12 +12,12 @@
        
          <el-tab-pane label="已售罄" name="second">
             <ProductInput></ProductInput>
-             <ProductTable></ProductTable>
+             <ProductTable2></ProductTable2>
         </el-tab-pane> 
            
              <el-tab-pane label="仓库中" name="third">
                <ProductInput></ProductInput>
-                 <ProductTable></ProductTable>
+                 <ProductTable3></ProductTable3>
              </el-tab-pane>
       </el-tabs>
         </keep-alive>
@@ -26,12 +26,16 @@
 </template>
 <script>
 import ProductTable from "./ProductTable";
+import ProductTable2 from "./ProductTable2";
+import ProductTable3 from "./ProductTable3";
 import ProductInput from "./productInput";
 import {mapState, mapMutations,mapActions } from "vuex"
 export default {
   components: {
     ProductTable,
-    ProductInput
+    ProductInput,
+    ProductTable2,
+    ProductTable3
   },
   data() {
     return {
@@ -46,7 +50,7 @@ export default {
            "date":"2017-05-07",
            "number":2
            },],
-        goodsList3:[]
+        
       
     };
   },
