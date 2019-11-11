@@ -42,7 +42,7 @@
         </el-col>
 
         <el-col :span="1">
-          <span >3</span>
+          <span   >3</span>
         </el-col>
 
         <el-col :span="2">
@@ -61,7 +61,7 @@
           :current-page.sync="currentPage"
           :page-size="pagesize"
           layout="prev, pager, next, jumper"
-          :total="total"
+          :total="total1"
         ></el-pagination>
       </el-col>
     </el-row>
@@ -72,11 +72,10 @@ import { mapState,mapMutations } from "vuex";
 export default {
   data() {
     return {
-      total: 1,
-      pagesize: 4,
+      total1:5,
+      pagesize: 3,
       currentPage: 1,
       multipleSelection: [],
-       
     };
   },
   computed: {
@@ -96,11 +95,18 @@ export default {
     handleSelectionChange(val) {
       this.multipleSelection = val;
       console.log(this.multipleSelection);
-    }
+    },
+     updated() {
+    this.total = 5;
+     
+  }
   },
   mounted() {
       
   },
+  updated(){
+     
+  }
  
 };
 </script>

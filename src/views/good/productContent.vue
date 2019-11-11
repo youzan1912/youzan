@@ -62,21 +62,7 @@ export default {
     ...mapMutations(['updateGoodsList2','updateGoodsList3']),
     handleClick(tab, event) {
       console.log(tab, event);
-        if(this.activeName=="first"){
-          this.getGoodsList()
-             return;
-        }
-      if(this.activeName=="second"){
-         this.updateGoodsList2(this.goodsList2 )
-         return;
-      }
-      
-       if(this.activeName=="third"){
-
-        this.updateGoodsList3(this.goodsList3)
-         return;
          
-      }
     }
   }
 };

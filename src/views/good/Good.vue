@@ -1,9 +1,6 @@
 <template>
   <div class="product">
-     
-
     <el-aside>
-      <!-- <ProductList></ProductList> -->
     </el-aside>
     <el-header>
       <ProductHead></ProductHead>
@@ -17,21 +14,18 @@
   </div>
 </template>
 <script>
-// import ProductList from "./ProductList";
+ 
 import ProductContent from "./productContent";
 import ProductHead from "./ProductHead";
 
 export default {
   components: {
-    // ProductList,
     ProductContent,
     ProductHead
   }
 };
 </script>
-
 <style lang="scss" scoped>
- 
 .ProductContent-box {
   background: #f7f8fa;
   overflow: hidden;

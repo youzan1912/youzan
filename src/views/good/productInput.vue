@@ -79,7 +79,7 @@
             </el-select>
           </el-form-item>
         </el-col>
-      </el-row>
+    </el-row>
 
       <el-row type="flex">
         <el-form-item>

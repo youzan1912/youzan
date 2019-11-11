@@ -1,0 +1,103 @@
+{
+    "err":0,
+    "msg":"success",
+    "data":[
+        {
+            "id": 1,
+            "name": "王小虎1",
+            "receipt": "无门槛领取",
+            "date": "2016-05-02",
+            "rights": " ",
+            "issuer":"张三",
+            "state": 1,
+            "number": 1001
+          },
+          {
+            "id": 9,
+            "name": "王小虎1",
+            "receipt": "无门槛领取",
+            "date": "2016-05-02",
+            "rights": " ",
+            "issuer":"张三",
+            "state": 1,
+            "number": 1001
+          },
+          {
+            "id": 2,
+            "name": "奥特曼",
+            "receipt": "无门槛领取",
+            "date": "2016-05-02",
+            "rights": " ",
+            "issuer":"张三",
+            "state": 2,
+            "number": 1002
+          },
+          {
+            "id": 8,
+            "name": "王小虎2",
+            "receipt": "无门槛领取",
+            "date": "2016-05-02",
+            "rights": " ",
+            "issuer":"张三",
+            "state": 1,
+            "number": 1002
+          },
+          {
+            "id": 10,
+            "name": "路人甲",
+            "receipt": "无门槛领取",
+            "date": "2016-05-02",
+            "rights": " ",
+            "issuer":"张三",
+            "state": 1,
+            "number": 1002
+          },
+          {
+            "id": 3,
+            "name": "王小虎3",
+            "receipt": "无门槛领取",
+            "date": "2016-05-02",
+            "rights": " ",
+            "issuer":"张三",
+            "state": 1,
+            "number": 1003
+          },
+          {
+            "id": 4,
+            "name": "王小虎4",
+            "receipt": "无门槛领取",
+            "date": "2016-05-02",
+            "rights": " ",
+            "issuer":"张三",
+            "state": 1,
+            "number": 1004
+          },{
+            "id": 5,
+            "name": "王小虎5",
+            "receipt": "无门槛领取",
+            "date": "2016-05-02",
+            "rights": " ",
+            "issuer":"张三",
+            "state": 1,
+            "number": 1005
+          },{
+            "id": 6,
+            "name": "王小虎6",
+            "receipt": "无门槛领取",
+            "date": "2016-05-02",
+            "rights": " ",
+            "issuer":"张三",
+            "state": 2,
+            "number": 1006
+          },{
+            "id": 7,
+            "name": "王小虎7",
+            "receipt": "无门槛领取",
+            "date": "2016-05-02",
+            "rights": " ",
+            "issuer":"张三",
+            "state": 3,
+            "number": 1007
+          }
+    ]
+}

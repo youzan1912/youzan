@@ -42,7 +42,7 @@
         </el-col>
 
         <el-col :span="1">
-          <span v-text="goodsList2.length">3</span>
+          <span >3</span>
         </el-col>
 
         <el-col :span="2">
@@ -106,7 +106,7 @@ export default {
      
   },
   updated() {
-    this.total = this.goodsList2.length;
+     
   }
 };
 </script>

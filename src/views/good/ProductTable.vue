@@ -33,6 +33,7 @@
         <el-button>改分组</el-button>
         <el-button @click="changeGoods" >下架</el-button>
         <el-button @click="deleteBtn">删除</el-button>
+
         <el-button>批量设置</el-button>
       </el-col>
 
@@ -69,14 +70,14 @@
 </template>
 <script>
 import { mapState, mapActions, mapMutations } from "vuex";
+ 
 export default {
   data() {
     return {
       total: 1,
-      pagesize: 3,
+      pagesize:4,
       currentPage: 1,
       multipleSelection: [],
-       
     };
   },
   computed: {
@@ -84,20 +85,45 @@ export default {
   },
   methods: {
     deleteBtn() {
-      this.deleteGoods(this.multipleSelection);
+       if(this.multipleSelection.length>0){
+         this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+             confirmButtonText: '确定',
+             cancelButtonText: '取消',
+             type: 'warning'
+           }).then(() => {
+             
+             this.deleteGoods(this.multipleSelection);
+             this.$message({
+               type: 'success',
+               message: '删除成功!'
+             });
+           }).catch(() => {
+             this.$message({
+               type: 'info',
+               message: '已取消删除'
+             });          
+           });
+          }else{
+            this.$message({
+          message: '请选择需要删除的信息',
+          type: 'warning'
+          });
+         }
+      
+ 
     },
     changeGoods(){
-     
       this.updateGoodsList3(this.multipleSelection)
     },
     handleCurrentChange(currentPage) {
       //当前页面
       this.currentPage = currentPage;
     },
-    ...mapMutations(["deleteGoods","updateGoodsList3"  ]),
+    ...mapMutations(["deleteGoods","updateGoodsList3"]),
     ...mapActions(["getGoodsList"]),
 
     handleSelectionChange(val) {
+      console.log(val)
       this.multipleSelection = val;
       console.log(this.multipleSelection);
     }
